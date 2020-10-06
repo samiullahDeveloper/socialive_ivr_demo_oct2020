@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="uk/co/planetbeyond/manager/util/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/uk/co/planetbeyond/manager/util"/>
+	<classpathentry kind="lib" path="lib/agiserverhelper.jar"/>
+	<classpathentry kind="lib" path="lib/apache-mime4j-0.6.jar"/>
+	<classpathentry kind="lib" path="lib/asterisk-api.jar"/>
+	<classpathentry kind="lib" path="lib/asterisk-java.jar"/>
+	<classpathentry kind="lib" path="lib/bonecp-0.7.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool2-2.4.3.jar"/>
+	<classpathentry kind="lib" path="lib/communication-api.jar"/>
+	<classpathentry kind="lib" path="lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/guava-12.0.jar"/>
+	<classpathentry kind="lib" path="lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/httpclient-4.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/httpcore-4.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/httpmime-4.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/imq.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-all-1.9.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-asl-1.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-mapper-asl-1.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/jdbm-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/je-5.0.58.jar"/>
+	<classpathentry kind="lib" path="lib/jedis-2.9.0.jar"/>
+	<classpathentry kind="lib" path="lib/jms.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="lib/logback-custom.jar"/>
+	<classpathentry kind="lib" path="lib/mail.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.13-bin.jar"/>
+	<classpathentry kind="lib" path="lib/opencsv-2.3.jar"/>
+	<classpathentry kind="lib" path="lib/quartz-all-1.8.3.jar"/>
+	<classpathentry kind="lib" path="lib/session-management-api.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/sql2java-validator-0.1.jar"/>
+	<classpathentry kind="lib" path="lib/util-api.jar"/>
+	<classpathentry kind="lib" path="lib/xlightweb-2.9.1-jar-with-dependencies.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
