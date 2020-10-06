@@ -1,0 +1,111 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet
+            id="1.0"
+            author="sami">
+      <sql>
+            CREATE DATABASE `socialive_ivr_demo_oct2020` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE TABLE `activity` (
+  `activity_id` int(11) NOT NULL AUTO_INCREMENT,
+  `msisdn` varchar(15) NOT NULL,
+  `unique_id` varchar(100) NOT NULL,
+  `creation_timestamp` datetime NOT NULL,
+  `context` varchar(100) DEFAULT NULL,
+  `activity_name` varchar(100) DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  `dtmf` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`activity_id`),
+  KEY `msisdn_index` (`msisdn`),
+  KEY `unique_id_index` (`unique_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `activity_report` (
+  `activity_report_id` int(11) NOT NULL AUTO_INCREMENT,
+  `report_date` date NOT NULL,
+  `subscribers_total_ivr_minutes` int(11) NOT NULL DEFAULT '0',
+  `subscribers_total_ivr_calls` int(11) NOT NULL DEFAULT '0',
+  `subscribers_total_unique_ivr_calls` int(11) NOT NULL DEFAULT '0',
+  `non_subscribers_total_ivr_minutes` int(11) NOT NULL DEFAULT '0',
+  `non_subscribers_total_ivr_calls` int(11) NOT NULL DEFAULT '0',
+  `non_subscribers_total_unique_ivr_calls` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`activity_report_id`),
+  UNIQUE KEY `report_date_UNIQUE` (`report_date`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `call_record` (
+  `call_record_id` int(11) NOT NULL AUTO_INCREMENT,
+  `shortcode` varchar(15) NOT NULL,
+  `msisdn` varchar(15) NOT NULL,
+  `start_timestamp` datetime NOT NULL,
+  `end_timestamp` datetime DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL COMMENT 'time duration in seconds',
+  PRIMARY KEY (`call_record_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `content_folder` varchar(100) NOT NULL,
+  `menu_number` tinyint(4) NOT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `content` (
+  `content_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `creation_timestamp` datetime NOT NULL,
+  `filename` varchar(200) NOT NULL,
+  `status` tinyint(4) NOT NULL COMMENT '0=Added\n1=Active\n2=Inactive\n3=Deleted',
+  `synchronization_timestamp` datetime DEFAULT NULL,
+  `menu_number` tinyint(4) DEFAULT NULL COMMENT 'For Ordering only',
+  PRIMARY KEY (`content_id`),
+  KEY `fk_content_category_idx` (`category_id`),
+  KEY `file_status_index` (`status`),
+  CONSTRAINT `fk_content_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `segment_report` (
+  `segment_report_id` int(11) NOT NULL AUTO_INCREMENT,
+  `report_date` date NOT NULL,
+  `segment_name` varchar(100) NOT NULL,
+  `segment_hits` int(11) NOT NULL DEFAULT '0',
+  `segment_unique_hits` int(11) NOT NULL DEFAULT '0',
+  `segment_hits_duration` int(11) NOT NULL DEFAULT '0' COMMENT 'segment hit duration in seconds',
+  PRIMARY KEY (`segment_report_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `subscriber` (
+  `subscriber_id` int(11) NOT NULL AUTO_INCREMENT,
+  `msisdn` varchar(15) NOT NULL,
+  `creation_timestamp` datetime NOT NULL,
+  `status` tinyint(4) NOT NULL COMMENT '0 = Inactive\n1 = Active',
+  `deactivation_timestamp` datetime DEFAULT NULL,
+  `created_through` tinyint(4) NOT NULL COMMENT '1=SMS\n2=IVR',
+  `language` varchar(15) NOT NULL COMMENT 'urdu',
+  `unsubscription_timestamp` datetime DEFAULT NULL,
+  PRIMARY KEY (`subscriber_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `web_user` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`username`),
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+      </sql>
+      <rollback>
+          <sql>
+              DROP DATABASE 'socialive_ivr_demo_oct2020';
+              DROP TABLE IF EXISTS activity,cdr,content,content_files,ivr_menu,subscribers,user;
+          </sql>
+      </rollback>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+    <properties>
+        <extensionsfile>extensions_social_live.conf</extensionsfile>
+        <configfile>extensions_social_live_configuration.conf</configfile>
+        <context>default</context>
+        <mainextension>exten => 7733,1,Set(__DEST=SOCIAL_LIVE) \nsame =>  n,Set(GROUP(shortcode)=SOCIAL_LIVE) \nsame =>  n,Set(CDR(userfield)=${DEST}) \nsame =>  n,Goto(SOCIAL_LIVE_INIT,s,1)\nsame =>  n,Hangup()</mainextension>
+    </properties>
