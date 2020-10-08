@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Testing jenkins github webhook-->
 <!-- WARNING: Eclipse auto-generated file.
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. -->
-<project basedir="." default="build" name="social_live_ivr" >
+<project basedir="." default="build" name="socialive_ivr_agi_demo_oct_2020" >
     <property environment="env"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>

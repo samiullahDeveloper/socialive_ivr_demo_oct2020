@@ -1,10 +1,10 @@
-CONFIG_DIR="/home/sami/Desktop/ivr_projects/social_live_ivr_test/working/conf/"
+CONFIG_DIR="/home/sami/Desktop/ivr_projects/socialive_ivr_agi_demo_oct2020/working/conf/"
 CONFIG_FILE="settings.xml"
 
 SRC_DIR="/etc/asterisk/"
 FILE="extensions.conf"
 
-EXTENSION_DIR_PATH="\/home\/sami\/Desktop\/ivr_projects\/social_live_ivr_test\/working\/conf\/dialplan\/"
+EXTENSION_DIR_PATH="\/home\/sami\/Desktop\/ivr_projects\/socialive_ivr_agi_demo_oct2020\/working\/conf\/dialplan\/"
 
 MAIN_DIALPLAN_CONTEXT=$(awk -F'[<>]' '/<context>/{print $3}' "$CONFIG_DIR/$CONFIG_FILE")
 MAIN_EXTENSION_FILE_TO_INCLUDE=$(awk -F'[<>]' '/<extensionsfile>/{print $3}' "$CONFIG_DIR/$CONFIG_FILE")
