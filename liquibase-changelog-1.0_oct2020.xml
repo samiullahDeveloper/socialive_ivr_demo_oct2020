@@ -103,7 +103,7 @@ CREATE TABLE `web_user` (
       <rollback>
           <sql>
               DROP DATABASE 'socialive_ivr_demo_oct2020';
-              DROP TABLE IF EXISTS activity,cdr,content,content_files,ivr_menu,subscribers,user;
+              DROP TABLE IF EXISTS activity,activity_report,call_record,category,content,segment_report,subscriber,web_user;
           </sql>
       </rollback>
   </changeSet>
